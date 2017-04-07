@@ -1,0 +1,13 @@
+
+CHANGELOG.txt
+
+
+#SPIP
+tmp/
+ecrire/
+local/
+plugins-dist/
+prive/
+squelettes-dist/
+config/
+INSTALL.txt
