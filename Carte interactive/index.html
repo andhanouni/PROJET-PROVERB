@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="C:\Users\adjib\node_modules\datamaps\dist\datamaps.world.hires.min.js"></script>
+  <div id="basic" style="position: relative;left: 275px;top:100px; width: 1000px; height: 1000px;"></div>
+
+
+
+
+<script>
+var basic_choropleth = new Datamap({
+element: document.getElementById("basic"),
+projection: 'mercator',
+fills: {
+defaultFill: "#606060", //Couleur du globe par défaut
+authorHasTraveledTo: "#fa0fa0" // Couleur certains pays désignés
+},
+data: {
+      USA: { fillKey: "authorHasTraveledTo" },
+      JPN: { fillKey: "authorHasTraveledTo" },
+      ITA: { fillKey: "authorHasTraveledTo" },
+      CRI: { fillKey: "authorHasTraveledTo" },
+      KOR: { fillKey: "authorHasTraveledTo" },
+      DEU: { fillKey: "authorHasTraveledTo" },
+      FRA: { fillKey: "authorHasTraveledTo" }
+
+}
+});
+
+
+</script>
+
+</body>
