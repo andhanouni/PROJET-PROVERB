@@ -2,15 +2,8 @@
 <meta charset="utf-8">
 <body>
   <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://d3js.org/topojson.v1.min.js"></script>  
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="datamaps.world.hires.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
-  
-  <script src='http://okfnlabs.org/wikipediajs/wikipedia.js'></script>
-  
-  
   <div id="basic" style="position: relative;left: 275px;top:100px; width: 1000px; height: 1000px;"></div>
 
 
@@ -18,87 +11,25 @@
 
 <script>
 var basic_choropleth = new Datamap({
-	element: document.getElementById("basic"),
-	projection: 'mercator',
-	fills: {
-	defaultFill: "#606060", //Couleur du globe par défaut
-	authorHasTraveledTo: "#fa0fa0" // Couleur certains pays désignés
-	},
-	data: {
-	      USA: { fillKey: "authorHasTraveledTo" },
-	      JPN: { fillKey: "authorHasTraveledTo" },
-	      ITA: { fillKey: "authorHasTraveledTo" },
-	      CRI: { fillKey: "authorHasTraveledTo" },
-	      KOR: { fillKey: "authorHasTraveledTo" },
-	      DEU: { fillKey: "authorHasTraveledTo" },
-	      FRA: { fillKey: "authorHasTraveledTo" }
-	
-	},
-	done: function(datamap) {
-        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-            //alert(geography.properties.name);
-            
-            //popup(geography.properties.name);
-            getInfosPays(geography.properties.name);
-        });
-    }	
-	
-	});
+element: document.getElementById("basic"),
+projection: 'mercator',
+fills: {
+defaultFill: "#606060", //Couleur du globe par défaut
+authorHasTraveledTo: "#fa0fa0" // Couleur certains pays désignés
+},
+data: {
+      USA: { fillKey: "authorHasTraveledTo" },
+      JPN: { fillKey: "authorHasTraveledTo" },
+      ITA: { fillKey: "authorHasTraveledTo" },
+      CRI: { fillKey: "authorHasTraveledTo" },
+      KOR: { fillKey: "authorHasTraveledTo" },
+      DEU: { fillKey: "authorHasTraveledTo" },
+      FRA: { fillKey: "authorHasTraveledTo" }
 
-	function popup(nomPays) {
-		
-	    w2popup.open({
-	        title: 'Popup Title',
-	        body: '<div class="w2ui-centered">'+nomPays+'</div>'
-	    });
-	}
+}
+});
 
-	function getInfosPays(idPays){
-		var url = "https://fr.wikipedia.org/wiki/"+idPays;
-		/*
-		$.get( url, function( data ) {
-		    w2popup.open({
-		        title: 'Popup Title',
-		        body: data
-		    });
-		});
-		*/
-		var info = WIKIPEDIA.getData(url,function( info ) {
-			
-		      var rawData = info.raw;
-		      var summaryInfo = info.summary;
-		      var properties = rawData[info.dbpediaUrl];
-			  var html = "<img src='"+summaryInfo.image+"' />";
-			  
-		      /*
-		      for (key in summaryInfo) {
-			    	  html += "<p>"+summaryInfo[key]+"</p>";
-		      }
-		      $('.summary .thumbnail').attr('src', summaryInfo.image);
-		      var dataAsJson = JSON.stringify(summaryInfo, null, '    ')
-		      $('.summary .raw').val(dataAsJson);
 
-		      // Raw Data Summary
-		      var count = 0;
-		      for (key in properties) {
-		        count += 1;
-		        $('.data-summary .properties').append(key + '\n');
-		      }
-		      $('.data-summary .count').text(count);
-
-		      // raw JSON
-		      var dataAsJson = JSON.stringify(rawData, null, '    ')
-		      $('.results-json').val(dataAsJson);
-			*/
-			
-			
-		    w2popup.open({
-		        title: summaryInfo.title,
-		        body: html
-		    });
-		});		
-	}
-	
 </script>
 
 </body>

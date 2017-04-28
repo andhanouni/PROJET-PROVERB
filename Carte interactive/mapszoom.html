@@ -4,7 +4,7 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <!-- I recommend you host this file on your own, since this will change without warning -->
-  <script src="C:\Users\adjib\node_modules\datamaps\dist\datamaps.world.hires.min.js"></script>
+  <script src="datamaps.world.hires.min.js"></script>
   <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
   <h2>Datamaps</h2>
   <div id="container" style="position: relative; width: 800px; height: 800px;"></div>
@@ -215,7 +215,7 @@
     /*this.instance.bubbles([
       {centered: 'MEX', fillKey: 'Trouble', radius: 10},
       {centered: 'CAN', fillKey: 'neato', radius: 5},
-      {centered: 'BRA', fillKey: 'neato', radius: 15},
+      {centered: 'BRA', fillKey: 'neato', radius: 15},        //Fonctions des bulles
       {centered: 'USA', fillKey: 'Trouble', radius: 46},
       {centered: 'JPN', fillKey: 'neato', radius: 2},
     ])*/
@@ -226,6 +226,8 @@
     	$container: this.$container,
     	datamap: datamap
     });
+
+
   }
 
   new Datamap();
