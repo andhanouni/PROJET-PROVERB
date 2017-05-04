@@ -9004,10 +9004,10 @@ _ This plugin requires [Contacts &amp; Organisations->http://files.spip.org/spip
 <archive id="centre_image.zip" dtd="paquet">
 <zip>
 	<file>centre_image.zip</file>
-	<size>185116</size>
-	<date>1491138242</date>
+	<size>185437</size>
+	<date>1493391842</date>
 	<source>_plugins_/centre_image/trunk</source>
-	<last_commit>2017-04-02 15:04:02</last_commit>
+	<last_commit>2017-04-28 17:04:02</last_commit>
 </zip>
 <traductions>
 <traduction module="centre_image" reference="fr">
@@ -9017,7 +9017,7 @@ _ This plugin requires [Contacts &amp; Organisations->http://files.spip.org/spip
 <paquet
 	prefix="centre_image"
 	categorie="multimedia"
-	version="0.9.2"
+	version="0.10.1"
 	etat="dev"
 	compatibilite="[3.0.19;3.2.*]"
 	logo="prive/themes/spip/images/centre_image-64.png"
@@ -32985,10 +32985,10 @@ lors de leur inscription et de la modification de leur profil.
 <archive id="inscription3.zip" dtd="paquet">
 <zip>
 	<file>inscription3.zip</file>
-	<size>169780</size>
-	<date>1492020264</date>
+	<size>169907</size>
+	<date>1493575442</date>
 	<source>_plugins_/inscription/trunk</source>
-	<last_commit>2017-04-12 20:04:07</last_commit>
+	<last_commit>2017-04-30 20:04:02</last_commit>
 </zip>
 <traductions>
 <traduction module="inscription3" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/inscription/trunk/lang/" reference="fr">
@@ -33020,7 +33020,7 @@ lors de leur inscription et de la modification de leur profil.
 <paquet
 	prefix="inscription3"
 	categorie="auteur"
-	version="3.6.7"
+	version="3.6.9"
 	etat="stable"
 	compatibilite="[3.1.0;3.1.*]"
 	logo="prive/themes/spip/images/inscription3-64.png"
@@ -33035,7 +33035,7 @@ lors de leur inscription et de la modification de leur profil.
 	<auteur lien="http://www.kent1.info">kent1</auteur>
 	<auteur>BoOz</auteur>
 
-	<copyright>2007-2016</copyright>
+	<copyright>2007-2017</copyright>
 
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
 
@@ -34791,41 +34791,54 @@ _ Deze plugin maakt [jQuery-File-Upload->http://aquantum-demo.appspot.com/file-u
 
 </archive>
 
-<archive id="jquery_lazyload.zip" dtd="plugin">
+<archive id="jquery_lazyload.zip" dtd="paquet">
 <zip>
 	<file>jquery_lazyload.zip</file>
-	<size>15031</size>
-	<date>1491149086</date>
+	<size>19556</size>
+	<date>1493407142</date>
 	<source>_plugins_/jquery_lazyload/trunk</source>
-	<last_commit>2017-04-02 18:04:12</last_commit>
+	<last_commit>2017-04-28 21:19:01</last_commit>
 </zip>
 <traductions>
 <traduction module="lazyload" reference="fr">
 </traduction>
 </traductions>
 
-<plugin>
-	<nom>jQuery Lazy Load</nom>
-	<auteur>b_b</auteur>
-	<version>1.0.0</version>
-	<etat>stable</etat>
-	<description>
-	Ce plugin permet d'utiliser le script jQuery Lazy Load dans les pages publiques de votre site.
-_ http://www.appelsiini.net/projects/lazyload
-_ Ic&ocirc;ne de www.iconshock.com
-	</description>
-	<lien>https://contrib.spip.net/3130</lien>
-	<prefix>lazyload</prefix>
-	<icon>lazyload-64.png</icon>
-	<pipeline>
-		<nom>insert_head</nom>
-		<inclure>lazyload_pipelines.php</inclure>
-	</pipeline>
-	<necessite id="SPIP" version="[2.1.0;3.0.99]" />
-	<utilise id="spip_bonux" version="[2.3.1;]" />
-	<categorie>multimedia</categorie>
-</plugin>
+<paquet
+	prefix="lazyload"
+	categorie="multimedia"
+	version="1.1.0"
+	etat="test"
+	compatibilite="[2.1.0;3.2.*]"
+	logo="lazyload-64.png"
+	documentation="https://contrib.spip.net/3130"
+>	
 
+	<nom>jQuery Lazy Load</nom>
+	<!-- Ce plugin permet d'utiliser le script jQuery Lazy Load dans les pages publiques de votre site -->
+
+	<auteur>b_b</auteur>
+
+	<pipeline nom="insert_head" inclure="lazyload_pipelines.php" />
+	<pipeline nom="header_prive" action="insert_head_prive" inclure="lazyload_pipelines.php" />
+
+	<utilise nom="spip_bonux" compatibilite="[2.3.1;[" />
+	<utilise nom="medias" compatibilite="[1.0.1;[" />
+</paquet>
+<multis>
+<slogan>
+<multi>
+[fr]Ce plugin permet d'utiliser le script jQuery Lazy Load dans les pages publiques de votre site
+</multi>
+</slogan>
+<description>
+<multi>
+[fr]Ce plugin permet d'utiliser le script jQuery Lazy Load dans les pages publiques de votre site.
+_ http://www.appelsiini.net/projects/lazyload
+_ Icône de www.iconshock.com
+</multi>
+</description>
+</multis>
 
 
 </archive>
@@ -36651,10 +36664,10 @@ Ic&#244;ne issue de la collection [Farm-Fresh Web Icons->http://www.fatcow.com/f
 <archive id="linkcheck.zip" dtd="paquet">
 <zip>
 	<file>linkcheck.zip</file>
-	<size>54194</size>
-	<date>1492013046</date>
+	<size>54255</size>
+	<date>1493305444</date>
 	<source>_plugins_/linkcheck/trunk</source>
-	<last_commit>2017-04-12 18:04:03</last_commit>
+	<last_commit>2017-04-27 17:04:03</last_commit>
 </zip>
 <traductions>
 <traduction module="linkcheck" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/linkcheck/trunk/lang/" reference="fr">
@@ -36682,7 +36695,7 @@ Ic&#244;ne issue de la collection [Farm-Fresh Web Icons->http://www.fatcow.com/f
 <paquet
 	prefix="linkcheck"
 	categorie="maintenance"
-	version="1.4.2"
+	version="1.4.3"
 	etat="stable"
 	compatibilite="[3.0.5;3.1.*]"
 	logo="prive/themes/spip/images/linkcheck-64.png"
@@ -42296,10 +42309,10 @@ EXIF, IPTC, GPS informations are extract with the plugin Photo metadata by ARNO*
 <archive id="metaplus_v2.zip" dtd="paquet">
 <zip>
 	<file>metaplus_v2.zip</file>
-	<size>25462</size>
-	<date>1490519942</date>
+	<size>17994</size>
+	<date>1493287444</date>
 	<source>_plugins_/metaplus/trunk</source>
-	<last_commit>2017-03-26 11:19:01</last_commit>
+	<last_commit>2017-04-27 12:04:03</last_commit>
 </zip>
 <traductions>
 <traduction module="metasplus" reference="fr">
@@ -42309,7 +42322,7 @@ EXIF, IPTC, GPS informations are extract with the plugin Photo metadata by ARNO*
 <paquet
 	prefix="metasplus"
 	categorie="divers"
-	version="1.1.9"
+	version="1.1.10"
 	etat="stable"
 	compatibilite="[2.1.0;3.2.*]"
 	logo="opengraph.png"
@@ -55773,10 +55786,10 @@ Pour raison de sécurité, seul le webmestre a la possibilité de créer et modi
 <archive id="reservation_evenement.zip" dtd="paquet">
 <zip>
 	<file>reservation_evenement.zip</file>
-	<size>197172</size>
-	<date>1493143442</date>
+	<size>198364</size>
+	<date>1493391844</date>
 	<source>_plugins_/reservation_evenement/branches/v1</source>
-	<last_commit>2017-04-25 20:04:02</last_commit>
+	<last_commit>2017-04-28 17:04:04</last_commit>
 </zip>
 <traductions>
 <traduction module="paquet-reservation_evenement" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/reservation_evenement/trunk/lang/" reference="fr">
@@ -55832,9 +55845,9 @@ Pour raison de sécurité, seul le webmestre a la possibilité de créer et modi
 <paquet
 	prefix="reservation_evenement"
 	categorie="date"
-	version="1.25.0"
+	version="1.25.1"
 	etat="test"
-	compatibilite="[3.0.16;3.1.*]"
+	compatibilite="[3.0.16;3.2.*]"
 	logo="prive/themes/spip/images/reservation_evenement-64.png"
 	documentation="https://contrib.spip.net/Reservation-d-evenements-4459"
 	schema="1.6.1"
@@ -55843,15 +55856,15 @@ Pour raison de sécurité, seul le webmestre a la possibilité de créer et modi
 	<nom>Réservation Événements</nom>
 	<auteur lien='https://websimple.be'>Rainer Müller</auteur>
 	<licence>GNU/GPL</licence>
-	<necessite nom="saisies" compatibilite="[2.7.3;]" />
-	<necessite nom="yaml" compatibilite="[1.5.2;]" />
-	<necessite nom="verifier" compatibilite="[1.0.5;]" />
-	<necessite nom="agenda" compatibilite="[3.14.5;]" />
-	<necessite nom="nospam" compatibilite="[1.5.7;]" />
-	<necessite nom="facteur" compatibilite="[3.4.7;]" />
+	<necessite nom="agenda" compatibilite="[3.18.4;]" />
+	<necessite nom="facteur" compatibilite="[3.4.11;]" />
+	<necessite nom="nospam" compatibilite="[1.5.17;]" />
+	<necessite nom="saisies" compatibilite="[2.18.12;]" />
+	<necessite nom="verifier" compatibilite="[1.6.4;]" />
+	<necessite nom="yaml" compatibilite="[1.5.3;]" />
 
-	<utilise nom="prix_objets" compatibilite="[1.6.5;]" />
 	<utilise nom="declinaisons" compatibilite="[1.0.3;]" />
+	<utilise nom="prix_objets" compatibilite="[1.6.5;]" />
 	<utilise nom="notifications_archive" compatibilite="[1.1.3;]" />
 
 	<!-- Déclaration de pipelines -->
@@ -56127,10 +56140,10 @@ Ele possui:
 <archive id="reservations_multiples.zip" dtd="paquet">
 <zip>
 	<file>reservations_multiples.zip</file>
-	<size>43073</size>
-	<date>1493143444</date>
+	<size>43072</size>
+	<date>1493391844</date>
 	<source>_plugins_/reservations_multiples/branches/v1</source>
-	<last_commit>2017-04-25 20:04:03</last_commit>
+	<last_commit>2017-04-28 17:04:04</last_commit>
 </zip>
 <traductions>
 <traduction module="paquet-reservations_multiples" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/reservations_multiples/trunk/lang/" reference="fr">
@@ -56154,9 +56167,9 @@ Ele possui:
 <paquet
 	prefix="reservations_multiples"
 	categorie="communication"
-	version="1.4.5"
+	version="1.4.6"
 	etat="test"
-	compatibilite="[3.0.16;3.1.*]"
+	compatibilite="[3.0.16;3.2.*]"
 	logo="prive/themes/spip/images/reservations_multiples-64.png"
 	documentation=""
 >
@@ -56168,8 +56181,8 @@ Ele possui:
 
 	<licence>GNU/GPL</licence>
 
-	<necessite nom="reservation_evenement" compatibilite="[1.21.24;]" />
-	<necessite nom="saisies" compatibilite="[2.7.3;]" />
+	<necessite nom="reservation_evenement" compatibilite="[1.25.1;]" />
+	<necessite nom="saisies" compatibilite="[2.18.12;]" />
 
 	<utilise nom="reservations_mailsubscribers" compatibilite="[1.2.4;]" />
 
@@ -56268,10 +56281,10 @@ Ele possui:
 <archive id="ressource.zip" dtd="paquet">
 <zip>
 	<file>ressource.zip</file>
-	<size>13256</size>
-	<date>1491149104</date>
+	<size>13267</size>
+	<date>1493817542</date>
 	<source>_plugins_/ressource</source>
-	<last_commit>2017-04-02 18:04:12</last_commit>
+	<last_commit>2017-05-03 15:19:01</last_commit>
 </zip>
 
 <paquet
@@ -57314,10 +57327,10 @@ Pour éviter les doublons et les imports successifs, une fois l'article créé, 
 <archive id="rsspropose.zip" dtd="paquet">
 <zip>
 	<file>rsspropose.zip</file>
-	<size>12732</size>
-	<date>1491559442</date>
+	<size>12722</size>
+	<date>1493298242</date>
 	<source>_plugins_/rsspropose/trunk</source>
-	<last_commit>2017-04-07 12:04:01</last_commit>
+	<last_commit>2017-04-27 15:04:02</last_commit>
 </zip>
 <traductions>
 <traduction module="rsspropose" reference="fr">
@@ -57897,10 +57910,10 @@ Pour éviter les doublons et les imports successifs, une fois l'article créé, 
 <archive id="saisies_v2.zip" dtd="paquet">
 <zip>
 	<file>saisies_v2.zip</file>
-	<size>191258</size>
-	<date>1493093046</date>
+	<size>191304</size>
+	<date>1493305444</date>
 	<source>_plugins_/saisies/trunk</source>
-	<last_commit>2017-04-25 06:04:05</last_commit>
+	<last_commit>2017-04-27 17:04:04</last_commit>
 </zip>
 <traductions>
 <traduction module="paquet-saisies" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/saisies/trunk/lang/" reference="fr">
@@ -57985,7 +57998,7 @@ Pour éviter les doublons et les imports successifs, une fois l'article créé, 
 <paquet
 	prefix="saisies"
 	categorie="outil"
-	version="2.18.11"
+	version="2.18.12"
 	etat="stable"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="images/logo_saisie_48.png"
@@ -58306,10 +58319,10 @@ Pour éviter les doublons et les imports successifs, une fois l'article créé, 
 <archive id="saveauto_3_0.zip" dtd="paquet">
 <zip>
 	<file>saveauto_3_0.zip</file>
-	<size>55897</size>
-	<date>1492229042</date>
+	<size>55912</size>
+	<date>1493827442</date>
 	<source>_plugins_/saveauto/trunk</source>
-	<last_commit>2017-04-15 06:04:01</last_commit>
+	<last_commit>2017-05-03 18:04:02</last_commit>
 </zip>
 <traductions>
 <traduction module="paquet-saveauto" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/saveauto/trunk/lang/" reference="fr">
@@ -58366,7 +58379,7 @@ Pour éviter les doublons et les imports successifs, une fois l'article créé, 
 <paquet
 	prefix="saveauto"
 	categorie="maintenance"
-	version="1.2.1"
+	version="1.2.2"
 	etat="stable"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/saveauto-24.png"
@@ -66099,9 +66112,9 @@ Se la cartella specifica non esiste, allora sar&#224; utilizzata  la cartella di
 <zip>
 	<file>squelettes_par_mots_cle_3.zip</file>
 	<size>18559</size>
-	<date>1491149112</date>
+	<date>1493622242</date>
 	<source>_plugins_/squelettes_par_mots_cle/trunk</source>
-	<last_commit>2017-04-02 18:04:12</last_commit>
+	<last_commit>2017-05-01 09:04:01</last_commit>
 </zip>
 <traductions>
 <traduction module="squelettesmots" reference="fr">
@@ -66113,9 +66126,9 @@ Se la cartella specifica non esiste, allora sar&#224; utilizzata  la cartella di
 <paquet
 	prefix="squelettesmots"
 	categorie="outil"
-	version="3.1.0"
+	version="3.1.1"
 	etat="stable"
-	compatibilite="[3.0.0;3.0.*]"
+	compatibilite="[3.0.0;3.1.*]"
 	logo="prive/themes/spip/images/squelettesmots-32.png"
 	documentation="https://contrib.spip.net/SPMC-Squelette-par-mot-cle-V2-0"
 >	
@@ -69099,10 +69112,10 @@ Logo a niekoľko obrázkov zásuvného modulu: [->http://pixel-mixer.com/]
 <archive id="titre_de_logo_v2.zip" dtd="paquet">
 <zip>
 	<file>titre_de_logo_v2.zip</file>
-	<size>14492</size>
-	<date>1491149114</date>
+	<size>13716</size>
+	<date>1493306342</date>
 	<source>_plugins_/titre_de_logo/trunk</source>
-	<last_commit>2017-04-02 18:04:12</last_commit>
+	<last_commit>2017-04-27 17:19:01</last_commit>
 </zip>
 <traductions>
 <traduction module="titre_logo" reference="fr">
@@ -69112,7 +69125,7 @@ Logo a niekoľko obrázkov zásuvného modulu: [->http://pixel-mixer.com/]
 <paquet
 	prefix="titre_logo"
 	categorie="edition"
-	version="3.0.3"
+	version="3.0.4"
 	etat="stable"
 	compatibilite="[3.0.0;3.1.*]"
 	schema="3.0.3"
@@ -69132,7 +69145,6 @@ Logo a niekoľko obrázkov zásuvného modulu: [->http://pixel-mixer.com/]
 
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/titre_logo.php" />
 	<pipeline nom="declarer_tables_interfaces" inclure="base/titre_logo.php" />
-	<pipeline nom="autoriser" inclure="titre_logo_autorisations.php" />
 	<pipeline nom="recuperer_fond" inclure="titre_logo_pipelines.php" />
 
 	<menu nom="configurer_titre_logo" titre="paquet-titre_logo:titre_logo_nom" parent="menu_configuration" icone="images/image-16.png" />
@@ -71388,10 +71400,10 @@ Par exemple, <code>"1er mars"</code> devient <code>"1er&nbsp;mars"</code>.
 <archive id="verifier.zip" dtd="paquet">
 <zip>
 	<file>verifier.zip</file>
-	<size>94155</size>
-	<date>1493093046</date>
+	<size>94153</size>
+	<date>1493809442</date>
 	<source>_plugins_/verifier</source>
-	<last_commit>2017-04-25 06:04:06</last_commit>
+	<last_commit>2017-05-03 13:04:01</last_commit>
 </zip>
 <traductions>
 <traduction module="paquet-verifier" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/verifier/lang/" reference="fr">
@@ -71473,7 +71485,7 @@ Par exemple, <code>"1er mars"</code> devient <code>"1er&nbsp;mars"</code>.
 <paquet
 	prefix="verifier"
 	categorie="outil"
-	version="1.6.4"
+	version="1.6.5"
 	etat="stable"
 	compatibilite="[2.0.10;3.2.*]"
 	logo="images/verifier-128.png"
@@ -72197,10 +72209,10 @@ WebM und Mkv sogar auf mobilen Endgeräten.
 <archive id="visiteurs_connectes.zip" dtd="plugin">
 <zip>
 	<file>visiteurs_connectes.zip</file>
-	<size>14500</size>
-	<date>1491149116</date>
+	<size>14536</size>
+	<date>1493363942</date>
 	<source>_plugins_/visiteurs_connectes</source>
-	<last_commit>2017-04-02 18:04:12</last_commit>
+	<last_commit>2017-04-28 09:19:01</last_commit>
 </zip>
 <traductions>
 <traduction module="visiteurs_connectes" reference="fr">
@@ -72223,7 +72235,7 @@ WebM und Mkv sogar auf mobilen Endgeräten.
 	</multi></nom>
 	<slogan>Affiche le nombre de visiteurs connect&#233;s sur le site</slogan>
 	<auteur>Phil, superyms (traduction)</auteur>
-	<version>0.2.2</version>
+	<version>0.2.3</version>
 	<etat>stable</etat>
 	<icon>images/visiteurs_connectes-64.png</icon>
 	<description><multi>
@@ -72249,7 +72261,7 @@ WebM und Mkv sogar auf mobilen Endgeräten.
 	<fonctions>visiteurs_fonctions.php</fonctions>
 	<prefix>visiteurs_connectes</prefix>
 	<lien>https://contrib.spip.net/Nombres-de-visiteurs-connectes</lien>
-	<necessite id="SPIP" version="[1.9.0;3.1.99]" />
+	<necessite id="SPIP" version="[1.9.0;3.2.99]" />
 	<categorie>statistique</categorie>
 </plugin>
 
@@ -75310,10 +75322,10 @@ Maak vooraf de cache leeg om het resultaat te zien.
 <archive id="escal_V3.zip" dtd="paquet">
 <zip>
 	<file>escal_V3.zip</file>
-	<size>1386690</size>
-	<date>1492190342</date>
+	<size>1385956</size>
+	<date>1493834642</date>
 	<source>_squelettes_/escal/branche_V3</source>
-	<last_commit>2017-04-14 19:19:01</last_commit>
+	<last_commit>2017-05-03 20:04:01</last_commit>
 </zip>
 <traductions>
 <traduction module="escal" reference="fr">
@@ -75333,7 +75345,7 @@ Maak vooraf de cache leeg om het resultaat te zien.
 <paquet
 	prefix="escal"
 	categorie="squelette"
-	version="3.86.44"
+	version="3.87.1"
 	schema="1.0.10"
 	etat="stable"
 	compatibilite="[3.0.0;3.2.*]"
@@ -78538,10 +78550,10 @@ Pour disposer d'un site SPIP incluant des fonctions g&#233;n&#233;riques, largem
 <archive id="soyezcreateurs_rebirth_4.zip" dtd="paquet">
 <zip>
 	<file>soyezcreateurs_rebirth_4.zip</file>
-	<size>2430099</size>
-	<date>1492679042</date>
+	<size>2430972</size>
+	<date>1493504374</date>
 	<source>_squelettes_/soyezcreateurs_net/trunk/plugins/soyezcreateurs</source>
-	<last_commit>2017-04-20 11:04:01</last_commit>
+	<last_commit>2017-04-30 00:19:33</last_commit>
 </zip>
 <traductions>
 <traduction module="soyezcreateurs" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_squelettes_/soyezcreateurs_net/trunk/plugins/soyezcreateurs/lang/" reference="fr">
@@ -79446,10 +79458,10 @@ De nombreux commentaires sont (ou seront) pr&&#233;sents dans le code source des
 <archive id="zoundation.zip" dtd="paquet">
 <zip>
 	<file>zoundation.zip</file>
-	<size>180991</size>
-	<date>1493136242</date>
+	<size>181771</size>
+	<date>1493845442</date>
 	<source>_squelettes_/zoundation/trunk</source>
-	<last_commit>2017-04-25 18:04:01</last_commit>
+	<last_commit>2017-05-03 23:04:02</last_commit>
 </zip>
 <traductions>
 <traduction module="zoundation" reference="fr">
@@ -79459,7 +79471,7 @@ De nombreux commentaires sont (ou seront) pr&&#233;sents dans le code source des
 <paquet
 	prefix="zoundation"
 	categorie="squelette"
-	version="1.0.45"
+	version="1.0.47"
 	etat="dev"
 	compatibilite="[3.0.13;3.2.*]"
 	logo="prive/themes/spip/images/zoundation-64.png"
@@ -79487,6 +79499,7 @@ De nombreux commentaires sont (ou seront) pr&&#233;sents dans le code source des
 	<utilise nom="produits" compatibilite="[1.1.16;[" />
 	<utilise nom="crayons" compatibilite="[1.26.7;[" />
 	<utilise nom="etiquettes" compatibilite="[2.2.3;[" />
+	<utilise nom="curator" compatibilite="[1.2.0;[" />
 
   <!-- plugin du core -->
 	<utilise nom="mots" compatibilite="[2.4.10;[" />
