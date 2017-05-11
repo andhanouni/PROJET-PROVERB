@@ -75,7 +75,8 @@ var basic_choropleth = new Datamap({
 		      var rawData = info.raw;
 		      var summaryInfo = info.summary;
 		      var properties = rawData[info.dbpediaUrl];
-			    var html = "<img src='"+summaryInfo.image+"'/>"+
+			    var html = "<div>"+
+		  "<img width='80px' style='float:right' src='"+summaryInfo.image+"'/>"+
           "<section><p> Voila un texte </p></section>"+
           "<section><p> Voila des proverbes </p></section>"+
           "<section><p> Proverbe amour </p></section>"+
