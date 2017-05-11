@@ -3,10 +3,10 @@
 <body>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
-  <script src="datamaps.world.hires.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
+  <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
 
   <script src='http://okfnlabs.org/wikipediajs/wikipedia.js'></script>
 
@@ -59,6 +59,7 @@ var basic_choropleth = new Datamap({
 	}
 
 
+
 	function getInfosPays(idPays){
 		var url = "https://fr.wikipedia.org/wiki/"+idPays;
 		/*
@@ -74,7 +75,16 @@ var basic_choropleth = new Datamap({
 		      var rawData = info.raw;
 		      var summaryInfo = info.summary;
 		      var properties = rawData[info.dbpediaUrl];
-			  var html = "<img src='"+summaryInfo.image+"' />";
+			    var html = "<img src='"+summaryInfo.image+"'/>"+
+          "<section><p> Voila un texte </p></section>"+
+          "<section><p> Voila des proverbes </p></section>"+
+          "<section><p> Proverbe amour </p></section>"+
+          "<section><p> Proverbe drole </p></section>"+
+          '<div class="w2ui-centered">Le texte est au centre</div>'+
+          ;
+
+
+
 
 		      /*
 		      for (key in summaryInfo) {
@@ -101,6 +111,7 @@ var basic_choropleth = new Datamap({
 		    w2popup.open({
 		        title: summaryInfo.title,
 		        body: html,
+            color: "#141515",
             url: 'data/popup3.html',
             showMax: true,
 

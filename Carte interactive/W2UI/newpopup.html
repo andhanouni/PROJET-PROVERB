@@ -6,15 +6,15 @@
     <script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
 </head>
+
 <body>
+// popup based on HTML already on the page
+$('#popup1').w2popup();
 
-<button class="w2ui-btn" onclick="popup()">Open Popup</button>
+// overlay based on the same HTML
+$(this).w2overlay($('#popup1 [rel=body]').html(), { css: { width: '600px', padding: '10px' } });
 
-<script type="text/javascript">
-function popup() {
-    w2popup.open({
-        title: 'Popup Title',
-        body: <div id="popup1" style="display: none; width: 650px; height: 400px; overflow: auto">
+<div id="popup1" style="display: none; width: 650px; height: 400px; overflow: auto">
     <div rel="title">
         Popup #1 Title
     </div>
@@ -56,9 +56,5 @@ function popup() {
         <button class="btn" onclick="$('#popup1').w2popup()">Switch to Popup 1</button>
     </div>
 </div>
-    });
-}
-</script>
 
 </body>
-</html>

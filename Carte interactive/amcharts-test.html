@@ -1,139 +1,127 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>amMap example</title>
+<!-- Styles -->
+<style>
+body { background-color: #30303d; color: #fff; }
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
 
-        <link rel="stylesheet" href="./amcharts/ammap/ammap.css" type="text/css">
-        <script src="./amcharts/ammap/ammap.js" type="text/javascript"></script>
-        <!-- map file should be included after ammap.js -->
-		<script src="./amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
 
-        <script src="./amcharts/ammap/themes/black.js" type="text/javascript"></script>
-        <script>
+<!-- Chart code -->
+<script>
+var map = AmCharts.makeChart( "chartdiv", {
 
-			AmCharts.theme = AmCharts.themes.black;
-			// add all your code to this method, as this will ensure that page is loaded
-			AmCharts.ready(function() {
-			    // create AmMap object
-			    var map = new AmCharts.AmMap();
+  "type": "map",
+  "theme": "dark",
+  "projection": "miller",
 
-			    // set path to images
+  "dataProvider": {
+    "map": "worldLow",
+    "getAreasFromMap": true
+  },
+  "areasSettings": {
+    "autoZoom": true,
+    "selectedColor": "#CC0000"
+  },
+  "smallMap": {},
+  "export": {
+    "enabled": true,
+    "position": "bottom-right"
+  }
+} ),
 
+done: function(datamap) {
+      datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+          //alert(geography.properties.name);
 
-			    /* create data provider object
-			     mapVar tells the map name of the variable of the map data. You have to
-			     view source of the map file you included in order to find the name of the
-			     variable - it's the very first line after commented lines.
+          //popup(geography.properties.name);
+          getInfosPays(geography.properties.name);
+      });
+  }
 
-			     getAreasFromMap indicates that amMap should read all the areas available
-			     in the map data and treat them as they are included in your data provider.
-			     in case you don't set it to true, all the areas except listed in data
-			     provider will be treated as unlisted.
-			    */
-			    var dataProvider = {
-			        mapVar: AmCharts.maps.worldLow,
-			        getAreasFromMap:true
-			    };
-			    // pass data provider to the map object
-			    map.dataProvider = dataProvider;
+});
 
-			    /* create areas settings
-			     * autoZoom set to true means that the map will zoom-in when clicked on the area
-			     * selectedColor indicates color of the clicked area.
-			     */
-			    map.areasSettings = {
-			        autoZoom: true,
-			        rollOverBrightness:10,
-			        selectedBrightness:20,
-			    };
+function popup(nomPays) {
 
-			    // let's say we want a small map to be displayed, so let's create and add it to the map
-			    map.smallMap = new AmCharts.SmallMap();
-
-			    // write the map to container div
-			    map.write("mapdiv");
-
-          function() {
-                AmCharts.AmMap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-                    //alert(geography.properties.name);
-
-                    //popup(geography.properties.name);
-                    getInfosPays(geography.properties.name);
-                });
-            }
-
-        	});
-
-        	function popup(nomPays) {
-
-        	    w2popup.load({
-        	        title: 'Popup Title',
-        	        body: '<div class="w2ui-centered">'+nomPays+'</div>',
+    w2popup.load({
+        title: 'Popup Title',
+        body: '<div class="w2ui-centered">'+nomPays+'</div>',
 
 
 
 
 
-              });
-        	}
+    });
+}
 
 
-        	function getInfosPays(idPays){
-        		var url = "https://fr.wikipedia.org/wiki/"+idPays;
-        		/*
-        		$.get( url, function( data ) {
-        		    w2popup.open({
-        		        title: 'Popup Title',
-        		        body: data
-        		    });
-        		});
-        		*/
-        		var info = WIKIPEDIA.getData(url,function( info ) {
 
-        		      var rawData = info.raw;
-        		      var summaryInfo = info.summary;
-        		      var properties = rawData[info.dbpediaUrl];
-        			  var html = "<img src='"+summaryInfo.image+"' />";
+function getInfosPays(idPays){
+  var url = "https://fr.wikipedia.org/wiki/"+idPays;
+  /*
+  $.get( url, function( data ) {
+      w2popup.open({
+          title: 'Popup Title',
+          body: data
+      });
+  });
+  */
+  var info = WIKIPEDIA.getData(url,function( info ) {
 
-        		      /*
-        		      for (key in summaryInfo) {
-        			    	  html += "<p>"+summaryInfo[key]+"</p>";
-        		      }
-        		      $('.summary .thumbnail').attr('src', summaryInfo.image);
-        		      var dataAsJson = JSON.stringify(summaryInfo, null, '    ')
-        		      $('.summary .raw').val(dataAsJson);
-
-        		      // Raw Data Summary
-        		      var count = 0;
-        		      for (key in properties) {
-        		        count += 1;
-        		        $('.data-summary .properties').append(key + '\n');
-        		      }
-        		      $('.data-summary .count').text(count);
-
-        		      // raw JSON
-        		      var dataAsJson = JSON.stringify(rawData, null, '    ')
-        		      $('.results-json').val(dataAsJson);
-        			*/
+        var rawData = info.raw;
+        var summaryInfo = info.summary;
+        var properties = rawData[info.dbpediaUrl];
+        var html = "<img src='"+summaryInfo.image+"'/>"+
+        "<section><p> Voila un texte </p></section>"+
+        '<div class="w2ui-centered">This is text inside the popup</div>';
 
 
-        		    w2popup.open({
-        		        title: summaryInfo.title,
-        		        body: html,
-                    url: 'data/popup3.html',
-                    showMax: true,
 
-        		    });
-        		});
-        	}
 
-        </script>
-    </head>
+        /*
+        for (key in summaryInfo) {
+            html += "<p>"+summaryInfo[key]+"</p>";
+        }
+        $('.summary .thumbnail').attr('src', summaryInfo.image);
+        var dataAsJson = JSON.stringify(summaryInfo, null, '    ')
+        $('.summary .raw').val(dataAsJson);
 
-    <body>
-        <div id="mapdiv" style="width: 100%; background-color:#222222; height: 500px;"></div>
-    </body>
+        // Raw Data Summary
+        var count = 0;
+        for (key in properties) {
+          count += 1;
+          $('.data-summary .properties').append(key + '\n');
+        }
+        $('.data-summary .count').text(count);
 
-</html>
+        // raw JSON
+        var dataAsJson = JSON.stringify(rawData, null, '    ')
+        $('.results-json').val(dataAsJson);
+    */
+
+
+      w2popup.open({
+          title: summaryInfo.title,
+          body: html,
+          color: "#141515",
+          url: 'data/popup3.html',
+          showMax: true,
+
+      });
+  });
+}
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
