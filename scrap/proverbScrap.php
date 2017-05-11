@@ -3,23 +3,22 @@
 /*Connexion BDD*/
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "samszo";
 $dbname = "proverbdb";
 
 // Create connection
-$conn = new mysql($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 
 $i = 1;
 while($i < 100){
 	$url = "http://www.unproverbe.com/proverbes-amitie.html".$i."&p=".$i."&call=1";
 	$code_source_page = file_get_contents($url);
-	$tab_block = preg_split('#id=\"provNorm\"#',$code_source_page);
+	$tab_block = preg_split('#id=\"provNorm\"# ',$code_source_page);
 	foreach($tab_block as $k => $v){
 		if(preg_match('#title=\"([^\"]+)\"#U',$v,$m))
 			$location = $m[1];
@@ -30,7 +29,8 @@ while($i < 100){
 
 		print_r($tab_block);
 		$req ="INSERT INTO pages (urlPage) VALUES ('".$url."')";
-		$conn ->query($sql)
+		$conn ->query($sql);
+		
 		//$res =sql($req);
 	}
 $i++;
