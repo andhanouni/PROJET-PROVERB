@@ -56,8 +56,8 @@
 						echo substr($proverbe, $deb+5,$fin)."<br/>";
 						//$xml=simplexml_load_string(str_replace('."</a>','</img>."</a>',$proverbe)) or die("Error: Cannot create object");
 						//print_r($xml);
-						//echo  $xml->title.'<br/>';
-	            /* get Last idPage insered
+						echo  $xml->title.'<br/>';
+	            $get Last idPage insered
 	            $sql = "SELECT MAX(idPage) FROM pages";
 	            $row = $conn->query($sql);
 	            $maxId = $row->fetch_assoc();
@@ -78,7 +78,7 @@
 
 		           $conn->query($sql);
 	            }
-							*/
+
 
 	        }
 				}
